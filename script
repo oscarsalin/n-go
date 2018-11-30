@@ -1,0 +1,12 @@
+#!/bin/sh
+namn=$1
+admin=$2
+if [ $admin=-z $admin ] ;
+then
+	sudo useradd -m -k /home/oscar/skeleton_user $namn
+	sudo passwd $namn
+else 
+	sudo useradd -m -k /home/oscar/skeleton_dir $namn
+	sudo passwd $namn
+	sudo usermod -G sudo $namn
+fi
